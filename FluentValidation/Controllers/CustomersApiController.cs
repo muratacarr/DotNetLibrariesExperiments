@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using FluentValidationApp.Context;
 using FluentValidationApp.Entities;
 using FluentValidation;
+using AutoMapper;
+using FluentValidationApp.DTOs;
 
 namespace FluentValidationApp.Controllers
 {
@@ -18,32 +20,63 @@ namespace FluentValidationApp.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IValidator<Customer> _customerValidator;
+        private readonly IMapper _mapper;
 
-        public CustomersApiController(AppDbContext context, IValidator<Customer> customerValidator)
+        public CustomersApiController(AppDbContext context, IValidator<Customer> customerValidator, IMapper mapper)
         {
             _context = context;
             _customerValidator = customerValidator;
+            _mapper = mapper;
+        }
+        [Route("MappingOrnek")]
+        [HttpGet]
+        public IActionResult MappingOrnek()
+        {
+            var customer = new Customer
+            {
+                Id = 1,
+                Name = "Murat",
+                Email = "murat@murat.com",
+                Age = 20,
+                CreditCard = new CreditCard
+                {
+                    Number = "123",
+                    ValidDate = DateTime.Now,
+                }
+            };
+
+            return Ok(_mapper.Map<CustomerDto>(customer));
+        }
+        [Route("EventDateDtoPost")]
+        [HttpPost]
+        public IActionResult EventDateDtoPost(EventDateDto eventDateDto)
+        {
+            var eventDate= _mapper.Map<EventDate>(eventDateDto);
+
+            return Ok(eventDate);
         }
 
         // GET: api/CustomersApi
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
+        public async Task<ActionResult<List<CustomerDto>>> GetCustomers()
         {
-          if (_context.Customers == null)
-          {
-              return NotFound();
-          }
-            return await _context.Customers.ToListAsync();
+            if (_context.Customers == null)
+            {
+                return NotFound();
+            }
+            var customers = await _context.Customers.ToListAsync();
+
+            return _mapper.Map<List<CustomerDto>>(customers);
         }
 
         // GET: api/CustomersApi/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Customer>> GetCustomer(int id)
         {
-          if (_context.Customers == null)
-          {
-              return NotFound();
-          }
+            if (_context.Customers == null)
+            {
+                return NotFound();
+            }
             var customer = await _context.Customers.FindAsync(id);
 
             if (customer == null)
@@ -90,7 +123,7 @@ namespace FluentValidationApp.Controllers
         [HttpPost]
         public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
         {
-            var result= _customerValidator.Validate(customer);
+            var result = _customerValidator.Validate(customer);
             if (!result.IsValid)
             {
                 return BadRequest(result.Errors.Select(x => new { property = x.PropertyName, error = x.ErrorMessage }));
