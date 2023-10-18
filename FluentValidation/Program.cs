@@ -1,10 +1,23 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using FluentValidationApp.Context;
+using FluentValidationApp.FluentValidators;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options=>options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes=true);
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.SuppressModelStateInvalidFilter = true;
+});
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining<CustomerValidator>();
+//builder.Services.AddSingleton<IValidator<Customer>,CustomerValidator>();
 
 builder.Services.AddDbContext<AppDbContext>(option =>
 {
