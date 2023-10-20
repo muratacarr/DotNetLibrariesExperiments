@@ -6,16 +6,27 @@ namespace LoggingApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILoggerFactory _loggerFactory;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILoggerFactory loggerFactory)
         {
-            _logger = logger;
+            _loggerFactory = loggerFactory;
         }
+
+        //private readonly ILogger<HomeController> _logger;
+
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
 
         public IActionResult Index()
         {
-            _logger.LogWarning("Index Sayfasına girildi");
+            //_logger.LogDebug("Index Sayfasına girildi");
+
+            var _logger= _loggerFactory.CreateLogger("HomeSınıfı");
+            _logger.LogInformation("Index Sayfasına girildi");
+
             return View();
         }
 
