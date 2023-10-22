@@ -5,9 +5,11 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentValidationApp", "FluentValidation\FluentValidationApp.csproj", "{EC5ADB95-67CE-4402-9B6F-06766B285902}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingApp", "LoggingApp\LoggingApp.csproj", "{09B78492-011D-487A-9689-3887C707BE8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggingApp", "LoggingApp\LoggingApp.csproj", "{09B78492-011D-487A-9689-3887C707BE8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLogApp", "NLogApp\NLogApp.csproj", "{66E58895-41B7-4389-9785-F4C6DDB99862}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLogApp", "NLogApp\NLogApp.csproj", "{66E58895-41B7-4389-9785-F4C6DDB99862}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateLimit.API", "RateLimit.API\RateLimit.API.csproj", "{5B968A00-0801-43F1-9B29-D14C2CECD726}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{66E58895-41B7-4389-9785-F4C6DDB99862}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66E58895-41B7-4389-9785-F4C6DDB99862}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66E58895-41B7-4389-9785-F4C6DDB99862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B968A00-0801-43F1-9B29-D14C2CECD726}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B968A00-0801-43F1-9B29-D14C2CECD726}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B968A00-0801-43F1-9B29-D14C2CECD726}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B968A00-0801-43F1-9B29-D14C2CECD726}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
