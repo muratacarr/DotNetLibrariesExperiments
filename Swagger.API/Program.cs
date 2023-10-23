@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(option =>
 {
-    option.SwaggerDoc("WeatherV1", new OpenApiInfo
+    /*option.SwaggerDoc("WeatherV1", new OpenApiInfo
     {
         Version = "v1",
         Title = "Hava durumu API",
@@ -23,7 +23,7 @@ builder.Services.AddSwaggerGen(option =>
     });
     var xmlFile=$"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath=Path.Combine(AppContext.BaseDirectory, xmlFile);
-    option.IncludeXmlComments(xmlPath);
+    option.IncludeXmlComments(xmlPath);*/
 });
 
 var app = builder.Build();
@@ -34,7 +34,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {
-        options.SwaggerEndpoint("WeatherV1/swagger.json", "Weather API");
+        /*options.SwaggerEndpoint("WeatherV1/swagger.json", "Weather API");*/
     });
 }
 
