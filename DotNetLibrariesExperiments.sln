@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangfireApp", "HangfireApp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorHandlingApp", "ErrorHandlingApp\ErrorHandlingApp.csproj", "{36E5F004-CF76-4D92-8DFA-34A6FE561FA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvironmentApp", "EnvironmentApp\EnvironmentApp.csproj", "{D837D143-4D22-4B6C-8CC0-C0489551210A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{36E5F004-CF76-4D92-8DFA-34A6FE561FA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36E5F004-CF76-4D92-8DFA-34A6FE561FA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36E5F004-CF76-4D92-8DFA-34A6FE561FA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D837D143-4D22-4B6C-8CC0-C0489551210A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D837D143-4D22-4B6C-8CC0-C0489551210A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D837D143-4D22-4B6C-8CC0-C0489551210A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D837D143-4D22-4B6C-8CC0-C0489551210A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
